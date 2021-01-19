@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}
+    Klanten
+{% endblock %}
+
+{% block body %}
+    {# Overzichtsvak met alle klanten #}
+    {% include 'clients/components/client_nav.html' %}
+{% endblock %}
+
+{% block detail %}
+
+    <div class="pt-8">
+        <div class="bg-white rounded-2xl ml-20 text-center shadow-xl">
+            <h1 class="text-5xl font-bold text-gray-500 py-4">Kies een klant</h1>
+        </div>
+    </div>
+
+{% endblock detail %}
