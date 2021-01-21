@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 from .models import Client, Contact, Order
-from .forms import ClientForm
+from .forms import ClientForm, AllClientForm
 
 
 def clients(request):
@@ -30,12 +30,41 @@ def client_detail(request, id):
 
 
 def add_client(request):
-    context = {}
+    client = True
+    form = AllClientForm()
+    all_clients = Client.objects.all()
+    new_client = None
+    if request.method == "POST":
+        submitted_form = AllClientForm(request.POST)
+        new_client = submitted_form.save()
+
+    context = {
+        "form": form,
+        "clients": all_clients,
+        "new_client": new_client,
+        "client": client,
+    }
     return render(request, "clients/add_client.html", context=context)
 
 
 def change_client(request, id):
+    client = True
     detail_client = Client.objects.get(id=id)
     form = ClientForm(request.POST, instance=detail_client)
     form.save()
     return redirect("client_detail", detail_client.id)
+
+
+# contact pages
+
+
+def add_contact(request, id):
+    client = True
+    context = {"client": client}
+    return render(request, "clients/add_contact.html", context=context)
+
+
+def add_order(request, id):
+    client = True
+    context = {"client": client}
+    return render(request, "clients/add_order.html", context=context)
