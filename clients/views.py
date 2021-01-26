@@ -55,6 +55,12 @@ def change_client(request, id):
     return redirect("client_detail", detail_client.id)
 
 
+def change_client_detail(request, id):
+    client = True
+    context = {"client": client}
+    return render(request, "clients/change_client_detail.html", context=context)
+
+
 # contact pages
 
 

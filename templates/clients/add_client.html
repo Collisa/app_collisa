@@ -14,11 +14,11 @@
     </a>
 
     <div class="pt-8">
-        <div class="bg-white rounded-2xl text-center shadow-xl pb-8">
+        <div class="text-center pb-8">
             <h1 class="text-3xl font-bold text-gray-500 py-4">Klanten Overzicht</h1>
 
 
-            <div class="shadow-2xl mx-24 mt-12 pb-8 rounded-2xl">
+            <div class="shadow-2xl bg-white mx-24 mt-6 pb-8 rounded-2xl text-gray-500">
                 <form x-data="{newClientSubmitted: false}" class="text-left py-6 mx-24" method="POST" action="">
                     <p class="uppercase text-teal-400 font-bold text-2xl">Nieuwe Klant</p>
                     <hr>
@@ -74,7 +74,7 @@
                 </form>
                 <hr class="border-2">
                 <table class="w-10/12 mx-auto mt-6 text-gray-500 rounded-2xl overflow-hidden">
-                    <thead class="text-left border-b-2 border-gray-500 bg-gray-100 uppercase">
+                    <thead class="text-left border-b-2 border-gray-500 bg-teal-100 uppercase">
                     <tr>
                         <th class="py-4 pl-4">Naam</th>
                         <th>BTW-nr</th>
@@ -90,7 +90,7 @@
                                 <div class="flex justify-between items-center">
                                     {{ client.invoice_email }}
                                     <div class="flex">
-                                        <a href="" class="text-teal-400 pr-4">
+                                        <a href="{% url 'change_client_detail' client.id %}" class="text-teal-400 pr-4">
                                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
